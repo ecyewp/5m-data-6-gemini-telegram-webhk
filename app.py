@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import os
 import sqlite3
 import datetime
-import requests,time
+import requests
 
 
 load_dotenv()
