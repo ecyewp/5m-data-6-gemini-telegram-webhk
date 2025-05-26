@@ -35,7 +35,7 @@ def gemini():
 def gemini_reply():
     q = request.form.get("q")
     print(q)
-    r = model.generate_content(q)
+    r = gemini_client.models.generate_content(model=gemini_model, contents=q)
     return(render_template("gemini_reply.html",r=r.text))
 
 @app.route("/main", methods=["GET","POST"])
