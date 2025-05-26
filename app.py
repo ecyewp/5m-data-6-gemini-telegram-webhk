@@ -17,7 +17,7 @@ api_key_tel=os.getenv("telegram_api_key")
 # model = genai.GenerativeModel("gemini-1.5-flash")
 
 gemini_client = genai.Client(api_key=api_key_tel)
-genmini_model = "gemini-2.0-flash"
+gemini_model = "gemini-2.0-flash"
 
 url=f'https://api.telegram.org/bot{api_key_tel}'
 
@@ -128,8 +128,8 @@ def telegram():
             # Process the message and generate a response
             system_prompt = "You are a financial expert.  Answer ONLY questions related to finance, economics, investing, and financial markets. If the question is not related to finance, state that you cannot answer it."
             prompt = f"{system_prompt}\n\nUser Query: {text}"
-            r = genmini_client.models.generate_content(
-                model=genmini_model,
+            r = gemini_client.models.generate_content(
+                model=gemini_model,
                 contents=prompt
             )
             r_text = r.text
