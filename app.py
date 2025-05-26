@@ -76,10 +76,10 @@ def delete_log():
 def paynow():
     return(render_template("paynow.html"))
 
-# @app.route("/telegram", methods=["GET","POST"])
-# def telegram():
-#     return(render_template("telegram.html"))
-
+@app.route("/prediction", methods=["GET","POST"])
+def prediction():
+    return(render_template("prediction.html"))
+    
 @app.route("/prediction_reply", methods=["GET","POST"])
 def prediction_reply():
     q = float(request.form.get("q"))
