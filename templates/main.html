@@ -1,0 +1,40 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Web Application</h2>
+        <p>Please Enter Username</p>
+        <form action="/gemini" method="post">
+            <input type="submit" value="Chatbot by Gemini">
+        </form>
+         <form action="/user_log" method="post">
+            <input type="submit" value="User Log">
+        </form>
+        <form action="/delete_log" method="post">
+            <input type="submit" value="Delete User Log">
+        </form>
+        <form action="/" method="post">
+            <input type="submit" value="Re-Enter Logon Name">
+        </form>
+        <form action="/Logout" method="post">
+            <input type="submit" value="Logout">
+        </form>
+        <form action="/start_telegram" method="post">
+            <input type="submit" value="Start Financial Advisor in Telegram">
+        </form>
+        <form action="/telegram" method="post">
+            <input type="submit" value="Start Telegram">
+        </form>
+        <form action="/paynow" method="post">
+            <input type="submit" value="Transfer Money">
+        </form>
+        <form action="/prediction" method="post">
+            <input type="submit" value="Prediction">
+        </form>
+         <form action="/prediction_reply" method="post">
+            <input type="submit" value="Prediction Reply">
+        </form>       
+    </div>    
+</body>

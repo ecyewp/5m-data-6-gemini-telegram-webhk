@@ -1,0 +1,46 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px auto;
+        }
+        th, td {
+            padding: 2px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"> 
+    <table>
+            <tr>
+              <th>Name</th>
+              <th>Date</th>
+            </tr>
+            {%for user in r%}
+               <tr>
+                 <td>{{user[0]}}</td>
+                 <td>{{user[1]}}</td>
+                </tr>
+            {%endfor%}
+    </table>
+        <div>
+            <h6>Reply {{r}}</h6>      
+            <form action="/main" method="post">
+                <input type="submit" value="Main">
+            </form>
+        </div>
+    </div>   
+</body>
+
