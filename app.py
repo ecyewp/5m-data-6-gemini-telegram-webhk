@@ -87,10 +87,17 @@ def prediction_reply():
 def start_telegram():
 
     domain_url = os.getenv('WEBHOOK_URL')
+    
+    headers = {"Content-Type": "application/json"}
+    payload = {"url": domain_url, "drop_pending_updates": True}
 
     # The following line is used to delete the existing webhook URL for the Telegram bot
-    delete_webhook_url = f"https://api.telegram.org/bot{api_key_tel}/deleteWebhook"
-    requests.post(delete_webhook_url, json={"url": domain_url, "drop_pending_updates": True})
+    
+    # delete_webhook_url = f"https://api.telegram.org/bot{api_key_tel}/deleteWebhook"
+    # requests.post(delete_webhook_url, json={"url": domain_url, "drop_pending_updates": True})
+    
+    delete_webhook_url = f"https://api.telegram.org/bot{api_key_tel}/deleteWebhook" 
+    requests.post(delete_webhook_url, json=payload, headers=headers)
     
     # Set the webhook URL for the Telegram bot
     set_webhook_url = f"https://api.telegram.org/bot{api_key_tel}/setWebhook?url={domain_url}/telegram"
