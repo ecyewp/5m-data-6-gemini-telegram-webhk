@@ -1,6 +1,7 @@
 
 from flask import Flask, request, render_template
-import google.generativeai as genai
+# import google.generativeai as genai
+from google import genai
 from dotenv import load_dotenv
 import os
 import sqlite3
@@ -12,11 +13,13 @@ load_dotenv()
 api_key=os.getenv("GEMINI_API_KEY")
 api_key_tel=os.getenv("telegram_api_key")
 
-genai.configure(api_key=api_key) # Enter Your API Key
-model = genai.GenerativeModel("gemini-1.5-flash")
+# genai.configure(api_key=api_key) # Enter Your API Key
+# model = genai.GenerativeModel("gemini-1.5-flash")
+
+gemini_client = genai.Client(api_key=api_key_tel)
+genmini_model = "gemini-2.0-flash"
 
 url=f'https://api.telegram.org/bot{api_key_tel}'
-chat_id = 5989332919
 
 app = Flask(__name__)
 
