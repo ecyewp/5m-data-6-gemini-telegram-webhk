@@ -106,7 +106,7 @@ def start_telegram():
 
 @app.route("/telegram",methods=["GET","POST"])
 def telegram():
-    update = request.get_json()
+    update = request.get_json(force=True, silent=True)
     if "message" in update and "text" in update["message"]:
         # Extract the chat ID and message text from the update
         chat_id = update["message"]["chat"]["id"]
@@ -125,7 +125,7 @@ def telegram():
             r_text = r.text
         
         # Send the response back to the user
-        send_message_url = f"https://api.telegram.org/bot{gemini_telegram_token}/sendMessage"
+        send_message_url = f"https://api.telegram.org/bot{api_key_tel}/sendMessage"
         requests.post(send_message_url, data={"chat_id": chat_id, "text": r_text})
     # Return a 200 OK response to Telegram
     # This is important to acknowledge the receipt of the message
