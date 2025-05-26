@@ -16,7 +16,7 @@ api_key_tel=os.getenv("telegram_api_key")
 # genai.configure(api_key=api_key) # Enter Your API Key
 # model = genai.GenerativeModel("gemini-1.5-flash")
 
-gemini_client = genai.Client(api_key=api_key_tel)
+gemini_client = genai.Client(api_key=api_key)
 gemini_model = "gemini-2.0-flash"
 
 url=f'https://api.telegram.org/bot{api_key_tel}'
